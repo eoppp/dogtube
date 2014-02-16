@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DogTube</string>
+    <string name="no_result">No Result.</string>
+    <string name="chihuahua">Chihuahua</string>
+    <string name="pomeranian">Pomeranian</string>
+    <string name="shiba">Shiba</string>
+    <string name="cavalier">Cavalier</string>
+    <string name="query_chihuahua">Chihuahua</string>
+    <string name="query_pomeranian">Pomeranian</string>
+    <string name="query_shiba">Shiba</string>
+    <string name="query_cavalier">Cavalier</string>
+    <string name="video_length" formatted="false">%02d:%02d</string>
+    <string name="description_chihuahua">I am chihuahua</string>
+    <string name="description_pomeranian">I am pomeranian</string>
+    <string name="description_shiba">I am shiba</string>
+    <string name="description_cavalier">I am cavalier</string>
+    <string name="search_movies">Search Movies</string>
+</resources>

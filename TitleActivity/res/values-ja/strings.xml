@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DogTube</string>
+    <string name="no_result">動画は見つかりませんでした。</string>
+    <string name="chihuahua">チワワ</string>
+    <string name="pomeranian">ポメラニアン</string>
+    <string name="shiba">柴犬</string>
+    <string name="cavalier">キャバリア</string>
+    <string name="query_chihuahua">チワワ</string>
+    <string name="query_pomeranian">ポメラニアン</string>
+    <string name="query_shiba">柴犬</string>
+    <string name="query_cavalier">キャバリア</string>
+    <string name="video_length" formatted="false">%02d:%02d</string>
+    <string name="description_chihuahua">ぼくチワワ</string>
+    <string name="description_pomeranian">私はポメ</string>
+    <string name="description_shiba">俺は柴犬</string>
+    <string name="description_cavalier">わしはキャバリア</string>
+    <string name="search_movies">動画を検索</string>
+</resources>
