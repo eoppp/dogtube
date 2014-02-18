@@ -3,13 +3,17 @@ package jp.rainbowapps.dogtube;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import jp.rainbowapps.dogtube.R.string;
 import jp.rainbowapps.dogtube.adapter.VideoListAdapter;
 import jp.rainbowapps.dogtube.io.GsonRequest;
 import jp.rainbowapps.dogtube.io.VolleyRequestHolder;
 import jp.rainbowapps.dogtube.model.SearchResult;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +30,9 @@ public class VideoListActivity extends Activity implements
 
 	/** 検索URLのプレフィックス */
 	private static final String URL_PREFIX = "http://gdata.youtube.com/feeds/api/videos?alt=json&q=";
+
+	/** 動画IDのクエリパラメータ */
+	private static final String QUERY_PARAMETER_VIDEO_ID = "v";
 
 	/** 動画の検索を行うクエリ */
 	public static final String KEY_QUERY = "query";
@@ -93,6 +100,29 @@ public class VideoListActivity extends Activity implements
 	public void onResponse(final SearchResult response) {
 		// リストの内容表示
 		mMovieListView.setAdapter(new VideoListAdapter(this, response));
+		// クリック時の処理
+		mMovieListView
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(final AdapterView<?> parent,
+							final View view, final int position, final long id) {
+						// 動画表示の暗黙的Intentを発行
+						final String videoUrl = response.feed.entry[position].media$group.media$player[0].url;
+						startActivity(new Intent(VideoListActivity.this,
+								VideoActivity.class));
+						// 動画URLから動画IDを取得
+						final String videoId = Uri.parse(videoUrl)
+								.getQueryParameter(QUERY_PARAMETER_VIDEO_ID);
+						final String title = response.feed.entry[position].title.$t;
+						// 画面遷移
+						final Intent intent = new Intent(
+								VideoListActivity.this, VideoActivity.class);
+						intent.putExtra(VideoActivity.KEY_TITLE, title);
+						intent.putExtra(VideoActivity.KEY_VIDEO_ID, videoId);
+						startActivity(intent);
+
+					}
+				});
 		mLoadingView.setVisibility(View.GONE);
 	}
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">DogTube</string>
     <string name="no_result">No Result.</string>
     <string name="chihuahua">Chihuahua</string>
@@ -16,4 +17,6 @@
     <string name="description_shiba">I am shiba</string>
     <string name="description_cavalier">I am cavalier</string>
     <string name="search_movies">Search Movies</string>
+    <string name="video_length" formatted="false">%02d:%02d</string>
+
 </resources>
